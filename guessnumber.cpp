@@ -4,18 +4,28 @@
 using namespace std;
 
 int main() {
-  srand ((unsigned) time (NULL));
-  int random = 1 + (rand () % 100);
-
-  int guess;
-  cout << "Enter your guess: ";
-  cin >> guess;
+  cout << "Welcome to my guessing number game!" << endl;
+  int chances;
+  cout << "How many chances you want? ";
+  cin >> chances;
   
-  if (guess == random) {
-    cout << "Bravo!" << endl;
-  } else if (guess < random) {
-    cout << "Your guess is smaller than actual number." << endl;
-  } else if (guess > random) {
-    cout << "Your guess is greater than actual number." << endl;
+  srand ((unsigned) time (NULL));
+  int random = 1 + (rand() % 100);
+  
+  for (int i = 0; i < chances; i++) {
+    int guess;
+    cout << "\nEnter your guess between 1 to 100: ";
+    cin >> guess;
+      
+    if (guess == random) {
+      cout << "Bravo!" << endl;
+      return 0;
+    } else if (guess < random) {
+      cout << "Your guess is smaller than actual number." << endl;
+    } else if (guess > random) {
+      cout << "Your guess is greater than actual number." << endl;
+    }
   }
+  
+  return 0;
 }
